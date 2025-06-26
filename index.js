@@ -4,6 +4,7 @@ const session = require('express-session');
 const db = require('./db');
 const berganotaRoutes = require('./routes/berganotaRoutes');
 const usuarioRoutes = require ('./routes/usuarioRoutes');
+const authRoutes = require('./routes/authRoutes');
 
 const app = express();
 PORT=8080
@@ -23,6 +24,7 @@ app.use(session({
 
 app.use('/', berganotaRoutes);
 app.use('/', usuarioRoutes);
+app.use('/', authRoutes);
 
 db.sync(()=> {console.log('Banco de dados conectado!')});
 

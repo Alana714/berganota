@@ -14,12 +14,17 @@
             <div class="left-section">
                 <div class="login-card">
                         <h2 class="text-center mb-4">Bem Vindo!</h2>
+                        {{#erro}}
+                        <div class="alert alert-danger">
+                            <strong>Usuario ou senha incorreto ou não existente!</strong>
+                        </div>
+                        {{/erro}}
                         <form>
                             <div class="mb-3">
-                                <input type="email" class="form-control" id="email" placeholder="nome@exemplo.com">
+                                <input type="email" class="form-control" id="email" name="email" placeholder="nome@exemplo.com">
                             </div>
                             <div class="mb-3">
-                                <input type="password" class="form-control id="password" placeholder="Sua senha">
+                                <input type="password" class="form-control" id="password" name="senha" placeholder="Sua senha">
                             </div>
                             <div class="mb-3 form-check">
                                 <input type="checkbox" class="form-check-input" id="remember">
