@@ -18,7 +18,6 @@ const cadastrarUsuario = (req, res) => {
             res.redirect('/inicio');
         });
     }
-
 }
 
 //get info do profile - TODO: fazer um post para poder editar
@@ -62,4 +61,9 @@ function verificarAutenticacao(req, res, next){
         console.log('usuário NÃO autorizado');
         res.redirect('/');
     }
+}
+
+module.exports = {
+    cadastrarUsuario,
+
 }

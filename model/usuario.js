@@ -25,6 +25,10 @@ const Usuario = database.define('usuario', {
         type: Sequelize.STRING,
         allowNull: false,
     },
+    idFamilia: {
+        type: Sequelize.STRING,
+        allowNull: true,
+    }
 });
 
 module.exports = Usuario;
