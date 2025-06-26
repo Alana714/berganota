@@ -1,6 +1,6 @@
 const Nota = require('../model/nota');
 
-const getLogin = (req, res) => {
+const getHome = (req, res) => {
     Nota.findAll = ({
         where: {
             idAutor: req.session.usuario.id,
@@ -17,7 +17,7 @@ const getRegister = (req, res) => {
 }
 
 const getIndex = (req, res) => {
-    res.render('home.html');
+    res.render('index.html');
 }
 
 const getProfile = (req, res) => {
@@ -41,7 +41,7 @@ const postNotas = (req, res) => {
 }
 
 module.exports = {
-    getLogin,
+    getHome,
     getRegister,
     getIndex,
     getProfile,

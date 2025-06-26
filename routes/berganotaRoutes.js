@@ -3,9 +3,9 @@ const router = express.Router();
 const berganotaController = require('../controller/berganotaController');
 const authController = require('../controller/authController');
 
-router.get('/', berganotaController.getLogin);
+router.get('/', berganotaController.getIndex);
 router.get('/cadastro', berganotaController.getRegister);
-router.get('/home', authController.verificarAutenticacao, berganotaController.getIndex);
+router.get('/home', authController.verificarAutenticacao, berganotaController.getHome);
 router.get('/perfil', authController.verificarAutenticacao, berganotaController.getProfile);
 router.get('/teste', berganotaController.getTest);
 
