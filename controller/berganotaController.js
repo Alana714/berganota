@@ -41,7 +41,7 @@ const getTest = (req, res) => {
     res.render('teste.html');
 }
 
-const postNotas = (req, res) => {
+const postNota = (req, res) => {
     let nota = {
         idAutor: req.session.usuario.id,
         title: req.body.titulo,
@@ -53,11 +53,25 @@ const postNotas = (req, res) => {
     })
 }
 
+const deleteNota = (req, res) => {
+    let id_nota = req.params.id;
+    Nota.findOne({
+        where:{
+            id: id_nota,
+        }
+    }).then((dados_nota)=>{
+        dados_nota.destroy().then(()=>{
+            res.redirect('/home');
+        });
+    });
+}
+
 module.exports = {
     getHome,
     getRegister,
     getIndex,
     getProfile,
     getTest,
-    postNotas
+    postNota,
+    deleteNota,
 }

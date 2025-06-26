@@ -34,18 +34,6 @@ function postEditarNota(req, res){
     }
 }
 
-function getExcluirNota(req, res){
-    let id_notas = req.params.id;
-    Nota.findOne({
-        where:{
-            id: id_notas
-        }
-    }).then((dados_notas)=>{
-        dados_notas.destroy().then(()=>{
-            res.redirect('/home');
-        });
-    }); 
-}
 
 module.exports = {
     getEditarNotas,

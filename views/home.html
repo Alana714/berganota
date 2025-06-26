@@ -67,8 +67,10 @@
                             <div class="post-header">
                                 <h3 class="post-title">{{title}}</h3>
                                 <div class="post-actions">
-                                    <button class="edit-btn" onclick="openSheet()"><i class="fas fa-edit"></i></button>
-                                    <button class="edit-btn"><i class="fas fa-trash"></i></button>
+                                    <button class="edit-btn" onclick="openEditSheet()"><i class="fas fa-edit"></i></button>
+                                    <form action="/api/delete/{{id}}" method="POST">
+                                        <button type="submit" class="edit-btn"><i class="fas fa-trash"></i></button>
+                                    </form>
                                 </div>
                             </div>
                             <div class="post-content">
@@ -80,52 +82,6 @@
                             </div>
                         </div>
                         {{/notas}}
-                        
-                        <!-- Post 1 -->
-                        <!-- <div class="post-card">
-                            <div class="post-header">
-                                <h3 class="post-title">Reunião Familiar</h3>
-                                <div class="post-actions">
-                                    <button class="edit-btn" onclick="openSheet()"><i class="fas fa-edit"></i></button>
-                                    <button class="edit-btn"><i class="fas fa-trash"></i></button>
-                                </div>
-                            </div>
-                            <div class="post-content">
-                                <p>Lembrando a todos que nossa reunião familiar mensal será neste sábado, às 15h, na casa da vovó. Por favor, confirmem presença até quinta-feira.</p>
-                                <p>Trazer seus pratos favoritos para compartilhar! Vamos discutir também os preparativos para o aniversário do papai.</p>
-                            </div>
-                            <div class="post-meta">
-                                <span>Publicado em: 05/06/2023</span>
-                                <span>Por: Maria Silva</span>
-                            </div>
-                        </div>
-                        
-                         Post 2 
-                        <div class="post-card">
-                            <div class="post-header">
-                                <h3 class="post-title">Lista de Compras</h3>
-                                <div class="post-actions">
-                                    <button class="edit-btn" onclick="openSheet()"><i class="fas fa-edit"></i></button>
-                                    <button class="edit-btn"><i class="fas fa-trash"></i></button>
-                                </div>
-                            </div>
-                            <div class="post-content">
-                                <p>Segue a lista de compras para o mês. Por favor, adicionem itens que estão faltando:</p>
-                                <ul>
-                                    <li>Arroz - 5kg</li>
-                                    <li>Feijão - 2kg</li>
-                                    <li>Óleo de cozinha - 2L</li>
-                                    <li>Café - 500g</li>
-                                    <li>Leite - 6 caixas</li>
-                                </ul>
-                                <p>Favor atualizar a lista conforme for comprando os itens.</p>
-                            </div>
-                            <div class="post-meta">
-                                <span>Publicado em: 03/06/2023</span>
-                                <span>Por: João Silva</span>
-                            </div>
-                        </div>
-                    </div> -->
                 </div>
                 
                 <!-- Nova Aba - Minha Família -->

@@ -37,6 +37,12 @@ function openSheet() {
     document.body.style.overflow = 'hidden';
 }
 
+const openEditSheet = () => {
+    document.getElementById('sheet-edit').classList.add('active');
+    document.getElementById('overlay').classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
 function closeSheet() {
     document.getElementById('sheet').classList.remove('active');
     document.getElementById('overlay').classList.remove('active');
