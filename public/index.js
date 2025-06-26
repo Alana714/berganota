@@ -1,3 +1,4 @@
+
 // Função para alternar entre abas
 function switchTab(tabId) {
     // Esconder todos os conteúdos de abas
@@ -29,16 +30,34 @@ function minhaFuncao() {
     }, 10);
 }
 
+const openEditSheet = (botao) => {
+    document.getElementById('sheet-edit').classList.add('active');
+    document.getElementById('overlay').classList.add('active');
+    document.body.style.overflow = 'hidden';
+
+    const postCard = botao.closest('.post-card')
+    const id = postCard.dataset.id;
+    const title = postCard.dataset.title;
+    const body = postCard.dataset.body;
+
+    document.getElementById('edit-title').value = title;
+    document.getElementById('edit-body').value = body;
+
+    const form = document.getElementById('post-edit-form');
+    form.action = `/api/edit/${id}`
+
+    // document.getElementById('sheet-edit').style.display = 'block';
+}
+
+function closeEditSheet() {
+    document.getElementById('sheet-edit').classList.remove('active');
+    document.getElementById('overlay').classList.remove('active');
+    document.body.style.overflow = 'auto';
+}
 
 // Funções para o sheet view
 function openSheet() {
     document.getElementById('sheet').classList.add('active');
-    document.getElementById('overlay').classList.add('active');
-    document.body.style.overflow = 'hidden';
-}
-
-const openEditSheet = () => {
-    document.getElementById('sheet-edit').classList.add('active');
     document.getElementById('overlay').classList.add('active');
     document.body.style.overflow = 'hidden';
 }
@@ -75,6 +94,7 @@ function submitPost() {
 
 // Fechar o sheet view ao clicar no overlay
 document.getElementById('overlay').addEventListener('click', closeSheet);
+document.getElementById('overlay').addEventListener('click', closeEditSheet);
 
 // Adicionar animação de pulso
 const style = document.createElement('style');

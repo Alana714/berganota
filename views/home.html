@@ -63,11 +63,11 @@
                 <div id="posts-tab" class="tab-content active">
                     <div class="posts-container">
                         {{#notas}}
-                        <div class="post-card">
+                        <div class="post-card" data-id={{id}} data-title="{{title}}" data-body="{{body}}">
                             <div class="post-header">
                                 <h3 class="post-title">{{title}}</h3>
                                 <div class="post-actions">
-                                    <button class="edit-btn" onclick="openEditSheet()"><i class="fas fa-edit"></i></button>
+                                    <button class="edit-btn" onclick="openEditSheet(this)"><i class="fas fa-edit"></i></button>
                                     <form action="/api/delete/{{id}}" method="POST">
                                         <button type="submit" class="edit-btn"><i class="fas fa-trash"></i></button>
                                     </form>
@@ -182,7 +182,6 @@
                     <button class="btn btn-secondary" onclick="closeSheet()">Cancelar</button>
                     <button type="submit" class="btn btn-primary">Publicar</button>
                 </div>
-                
             </form>
         </div>
     </div>
@@ -191,29 +190,29 @@
     <div class="sheet-container" id="sheet-edit">
         <div class="sheet-header">
             <h3 class="sheet-title"><i class="fas fa-plus-circle"></i> Editar Post</h3>
-            <button class="sheet-close" onclick="closeSheet()">
+            <button class="sheet-close" onclick="closeEditSheet()">
                 <i class="fas fa-times"></i>
             </button>
         </div>
         
+
         <div class="sheet-body">
-            <form id="post-form">
+            <form id="post-edit-form" method="POST">
                 <div class="form-group">
-                    <label class="form-label" for="post-title">Título do Post</label>
-                    <input type="text" class="form-control" id="post-title" name="titulo" value="{{nota.title}}" required>
+                    <label class="form-label" for="post-title" >Título do Post</label>
+                    <input type="text" class="form-control" id="edit-title" name="title"" required>
                 </div>
                 
                 <div class="form-group">
-                    <label class="form-label" for="post-content">Conteúdo</label>
-                    <textarea class="form-control" id="post-content" name="conteudo" value="{{nota.conteudo}}" required></textarea>
+                    <label class="form-label" for="post-content" >Conteúdo</label>
+                    <textarea class="form-control" id="edit-body"" name="body"" required></textarea>
                 </div>
                 
+                <div class="form-actions">
+                    <button class="btn btn-secondary" onclick="closeEditSheet()">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Editar</button>
+                </div>
             </form>
-        </div>
-        
-        <div class="form-actions">
-            <button class="btn btn-secondary" onclick="closeSheet()">Cancelar</button>
-            <button class="btn btn-primary" onclick="submitPost()">Publicar</button>
         </div>
     </div>
 

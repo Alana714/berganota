@@ -11,5 +11,6 @@ router.get('/teste', berganotaController.getTest);
 
 router.post('/api/add_post', authController.verificarAutenticacao, berganotaController.postNota);
 router.post('/api/delete/:id', authController.verificarAutenticacao, berganotaController.deleteNota);
+router.post('/api/edit/:id', authController.verificarAutenticacao, berganotaController.editNota);
 
 module.exports = router;

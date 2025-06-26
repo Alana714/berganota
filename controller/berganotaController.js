@@ -66,6 +66,20 @@ const deleteNota = (req, res) => {
     });
 }
 
+const editNota = (req, res) => {
+    const nota = req.body;
+
+    Nota.findOne({
+        where:{
+            id: req.params.id,
+        }
+    }).then((notaAntiga)=>{
+        notaAntiga.update(nota).then(()=>{
+            res.redirect('/home');
+        });
+    }); 
+}
+
 module.exports = {
     getHome,
     getRegister,
@@ -74,4 +88,5 @@ module.exports = {
     getTest,
     postNota,
     deleteNota,
+    editNota,
 }
