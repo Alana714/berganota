@@ -7,7 +7,7 @@ const getRegister = (req, res) => {
 }
 
 const getIndex = (req, res) => {
-    res.render('inicio.html');
+    res.render('home.html');
 }
 
 const getProfile = (req, res) => {

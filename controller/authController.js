@@ -24,6 +24,12 @@ const auth = async (req, res) => {
     }
 }
 
+const sair = (req, res) => {
+    req.session.destroy();
+    res.redirect('/');
+}
+
 module.exports = {
     auth,
+    sair,
 }
