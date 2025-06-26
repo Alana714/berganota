@@ -2,7 +2,8 @@ const express = require('express');
 const mustacheExpress = require('mustache-express');
 const session = require('express-session');
 const db = require('./db');
-const berganotaRouters = require('./routes/berganotaRoutes');
+const berganotaRoutes = require('./routes/berganotaRoutes');
+const usuarioRoutes = require ('./routes/usuarioRoutes');
 
 const app = express();
 PORT=8080
@@ -20,7 +21,8 @@ app.use(session({
     saveUninitialized: false
 }))
 
-app.use('/', berganotaRouters);
+app.use('/', berganotaRoutes);
+app.use('/', usuarioRoutes);
 
 db.sync(()=> {console.log('Banco de dados conectado!')});
 

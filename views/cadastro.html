@@ -29,6 +29,11 @@
                             <strong>Campos de senhas não coincidem!</strong>
                         </div>
                         {{/erroSenha}}
+                        {{#erroEmail}}
+                        <div class="alert alert-danger">
+                            <strong>Email já cadastrado!</strong>
+                        </div>
+                        {{/erroEmail}}
                         <form action="/api/cadastro" method="POST">
                             <div class="row">
                                 <div class="col-md-6">

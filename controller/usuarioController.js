@@ -16,7 +16,11 @@ const cadastrarUsuario = (req, res) => {
     else{
         Usuario.create(usuario).then(()=>{
             res.redirect('/inicio');
-        });
+        }).catch((err)=>{
+            console.log(err);
+            let erroEmail = true;
+            res.render('cadastro.html', {erroEmail, usuario});
+        })
     }
 }
 
