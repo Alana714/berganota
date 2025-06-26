@@ -1,6 +1,8 @@
 const Usuario = require('../model/usuario');
 
 const auth = async (req, res) => {
+    const remember = req.body.remember !== undefined;
+
     const user = await Usuario.findOne({
         where: {
             email: req.body.email,
@@ -9,8 +11,11 @@ const auth = async (req, res) => {
     });
 
     if(user != null){
+        if(remember){
+            req.session.user = user;
+        }
+        
         req.session.authorization = true;
-        req.session.user = user;
         res.redirect('/home');
     }
     else{
