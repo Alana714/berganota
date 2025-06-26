@@ -1,19 +1,24 @@
-const Usuario = require('../models/usuarioModel');
+const Usuario = require('../model/usuario');
 
-const getLogin = (req, res) => {
-    res.render('index.html');
-}
+const cadastrarUsuario = (req, res) => {
+    let usuario = {
+        nome: req.body.nome,
+        sobrenome: req.body.sobrenome,
+        email: req.body.email,
+        senha: req.body.senha,
+        confSenha: req.body.conf-password
+    }
 
-const getRegister = (req, res) => {
-    res.render('cadastro.html');
-}
+    if(usuario.senha != usuario.confSenha){
+        let erroSenha = true;
+        res.render('cadastro.html', {erroSenha})
+    }
+    else{
+        Usuario.create(usuario).then(()=>{
+            res.redirect('/inicio');
+        });
+    }
 
-//post create usuario
-function postCadastrarUsuario(req, res){
-    const dados_usuario = req.body;
-    Usuario.create(dados_usuario).then(()=>{
-        res.redirect('/inicio');
-    });
 }
 
 //get info do profile - TODO: fazer um post para poder editar

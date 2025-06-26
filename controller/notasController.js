@@ -1,8 +1,3 @@
-//get index
-const getIndex = (req, res) => {
-    res.render('inicio.html');
-}
-
 //get notas
 function getNotas(req, res){
     Notas.findAll().then((nota)=>{
