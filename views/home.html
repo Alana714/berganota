@@ -196,7 +196,7 @@
         </div>
         
         <div class="sheet-body">
-            <form id="post-form">
+            <form id="post-form" action="/api/add_post" method="POST">
                 <div class="form-group">
                     <label class="form-label" for="post-title">Título do Post</label>
                     <input type="text" class="form-control" id="post-title" name="titulo" placeholder="Digite um título" required>
@@ -206,13 +206,12 @@
                     <label class="form-label" for="post-content">Conteúdo</label>
                     <textarea class="form-control" id="post-content" name="conteudo" placeholder="Escreva seu post aqui..." required></textarea>
                 </div>
+                <div class="form-actions">
+                    <button class="btn btn-secondary" onclick="closeSheet()">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Publicar</button>
+                </div>
                 
             </form>
-        </div>
-        
-        <div class="form-actions">
-            <button class="btn btn-secondary" onclick="closeSheet()">Cancelar</button>
-            <button class="btn btn-primary" onclick="submitPost()">Publicar</button>
         </div>
     </div>
 

@@ -26,7 +26,7 @@ const sair = (req, res) => {
     if(req.session.remember == false){
         req.session.destroy();
     }
-    
+
     res.redirect('/');
 }
 

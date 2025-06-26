@@ -462,6 +462,7 @@ body, html {
     position: relative;
     margin-left: 8em;
     margin-top: 3em;
+    z-index: 999;
 }
 
 .transition-image-container {
