@@ -1,15 +1,5 @@
 const Nota = require('../model/nota');
 
-//get notas
-function getNotas(req, res){
-    Nota.findAll().then((nota)=>{
-        res.render('home.html', {nota});
-    });
-}
-
-//post create notas
-
-
 //get notas para editar
 function getEditarNotas(req, res){
     let id_notas = req.params.id;
@@ -58,8 +48,6 @@ function getExcluirNota(req, res){
 }
 
 module.exports = {
-    getNotas,
-    postNotas,
     getEditarNotas,
     postEditarNota,
     getExcluirNota

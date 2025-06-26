@@ -4,8 +4,11 @@ const getIndex = (req, res) => {
     res.render('index.html');
 }
 
-const getHome = (req, res) => {
+const getRegister = (req, res) => {
+    res.render('cadastro.html');
+}
 
+const getHome = (req, res) => {
     usuario = req.session.usuario
 
     Nota.findAll({
@@ -28,10 +31,6 @@ const getHome = (req, res) => {
     }).catch((err)=>{
         res.render('home.html', {err});
     })
-}
-
-const getRegister = (req, res) => {
-    res.render('cadastro.html');
 }
 
 const getProfile = (req, res) => {
