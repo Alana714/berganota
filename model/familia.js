@@ -1,12 +1,16 @@
 const Sequelize = require('sequelize');
 const database = require('../db');
 
-const Nota = database.define('nota', {
+const NotaFamiila = database.define('notaFamiila', {
     id: {
         type: Sequelize.INTEGER,
         autoIncrement: true,
         allowNull: false,
         primaryKey: true,
+    },
+    idFamilia: {
+        type: Sequelize.STRING,
+        allowNull:false
     },
     idAutor: {
         type: Sequelize.STRING,
@@ -26,4 +30,4 @@ const Nota = database.define('nota', {
     },
 })
 
-module.exports = Nota;
+module.exports = NotaFamiila;
