@@ -8,17 +8,7 @@ function getNotas(req, res){
 }
 
 //post create notas
-function postNotas(req, res){
-    let nota = {
-        idAutor: req.session.usuario.id,
-        title: req.body.titulo,
-        body: req.body.conteudo,
-    }
 
-    Nota.create(nota).then(()=>{
-        res.redirect('/home');
-    })
-}
 
 //get notas para editar
 function getEditarNotas(req, res){

@@ -1,5 +1,15 @@
+const Nota = require('../model/nota');
+
 const getLogin = (req, res) => {
-    res.render('index.html');
+    Nota.findAll = ({
+        where: {
+            idAutor: req.session.usuario.id,
+        }
+    }).then((notas)=>{
+        res.render('home.html', {notas});
+    }).catch((err)=>{
+        res.render('home.html', {err});
+    })
 }
 
 const getRegister = (req, res) => {
@@ -18,10 +28,23 @@ const getTest = (req, res) => {
     res.render('teste.html');
 }
 
+const postNotas = (req, res) => {
+    let nota = {
+        idAutor: req.session.usuario.id,
+        title: req.body.titulo,
+        body: req.body.conteudo,
+    }
+
+    Nota.create(nota).then(()=>{
+        res.redirect('/home');
+    })
+}
+
 module.exports = {
     getLogin,
     getRegister,
     getIndex,
     getProfile,
-    getTest
+    getTest,
+    postNotas
 }

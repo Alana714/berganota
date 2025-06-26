@@ -63,7 +63,25 @@
                 <div id="posts-tab" class="tab-content active">
                     <div class="posts-container">
 
-                        
+                        {{#notas}}
+                        <div class="post-card">
+                            <div class="post-header">
+                                <h3 class="post-title">Reunião Familiar</h3>
+                                <div class="post-actions">
+                                    <button class="edit-btn" onclick="openSheet()"><i class="fas fa-edit"></i></button>
+                                    <button class="edit-btn"><i class="fas fa-trash"></i></button>
+                                </div>
+                            </div>
+                            <div class="post-content">
+                                <p>Lembrando a todos que nossa reunião familiar mensal será neste sábado, às 15h, na casa da vovó. Por favor, confirmem presença até quinta-feira.</p>
+                                <p>Trazer seus pratos favoritos para compartilhar! Vamos discutir também os preparativos para o aniversário do papai.</p>
+                            </div>
+                            <div class="post-meta">
+                                <span>Publicado em: 05/06/2023</span>
+                                <span>Por: Maria Silva</span>
+                            </div>
+                        </div>
+                        {{/notas}}
                         
                         <!-- Post 1 -->
                         <div class="post-card">
