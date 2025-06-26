@@ -4,6 +4,7 @@ const berganotaController = require('../controller/berganotaController');
 
 router.get('/', berganotaController.getLogin);
 router.get('/cadastro', berganotaController.getRegister);
+router.post('/api/cadastro')
 router.get('/inicio', berganotaController.getIndex);
 router.get('/perfil', berganotaController.getProfile);
 router.get('/teste', berganotaController.getTest);
