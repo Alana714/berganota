@@ -11,10 +11,8 @@ const auth = async (req, res) => {
     });
 
     if(user != null){
-        if(remember){
-            req.session.user = user;
-        }
-        
+        req.session.user = user;
+        req.session.remember = remember;
         req.session.authorization = true;
         res.redirect('/home');
     }
@@ -25,7 +23,10 @@ const auth = async (req, res) => {
 }
 
 const sair = (req, res) => {
-    req.session.destroy();
+    if(req.session.remember == false){
+        req.session.destroy();
+    }
+    
     res.redirect('/');
 }
 
