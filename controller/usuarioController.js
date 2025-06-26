@@ -6,12 +6,12 @@ const cadastrarUsuario = (req, res) => {
         sobrenome: req.body.sobrenome,
         email: req.body.email,
         senha: req.body.senha,
-        confSenha: req.body.conf-password
+        confSenha: req.body.confsenha
     }
 
     if(usuario.senha != usuario.confSenha){
         let erroSenha = true;
-        res.render('cadastro.html', {erroSenha})
+        res.render('cadastro.html', {erroSenha, usuario})
     }
     else{
         Usuario.create(usuario).then(()=>{

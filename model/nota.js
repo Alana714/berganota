@@ -20,10 +20,6 @@ const Nota = database.define('nota', {
         type: Sequelize.STRING,
         allowNull: false,
     },
-    createdAt: {
-        type: Sequelize.DATE,
-        allowNull: false,
-    },
 })
 
 module.exports = Nota;

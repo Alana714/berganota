@@ -15,7 +15,7 @@
                     <div class="graphic-container">
                         <div class="square back-square"></div>
                         <div class="square front-square">
-                            <img src="./assets/registro.png"  
+                            <img src="/assets/registro.png"  
                                  class="register-image">
                         </div>
                     </div>
@@ -32,21 +32,21 @@
                         <form action="/api/cadastro" method="POST">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control" placeholder="Nome" name="nome" required>
+                                    <input type="text" class="form-control" placeholder="Nome" name="nome" value="{{usuario.nome}}" required>
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control" placeholder="Sobrenome" name="sobrenome" required>
+                                    <input type="text" class="form-control" placeholder="Sobrenome" name="sobrenome" value="{{usuario.sobrenome}}" required>
                                 </div>
                             </div>
                             
-                            <input type="email" class="form-control" placeholder="Email" name="email" required>
+                            <input type="email" class="form-control" placeholder="Email" name="email" value="{{usuario.email}}" required>
                             
                             <div class="row">
                                 <div class="col-md-12">
-                                    <input type="password" class="form-control" placeholder="Senha" name="password" required>
+                                    <input type="password" class="form-control" placeholder="Senha" name="senha" value="{{usuario.senha}}" required>
                                 </div>
                                 <div class="col-md-12">
-                                    <input type="password" class="form-control" placeholder="Confirmar Senha" name="conf-password" required>
+                                    <input type="password" class="form-control" placeholder="Confirmar Senha" name="confsenha" required>
                                 </div>
                             </div>
                             
