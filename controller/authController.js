@@ -29,7 +29,19 @@ const sair = (req, res) => {
     res.redirect('/');
 }
 
+const verificarAutenticacao = (req, res, next) => {
+    if(req.session.authorization){
+        console.log('usuário autorizado');
+        next();
+    }
+    else{
+        console.log('usuário NÃO autorizado');
+        res.redirect('/');
+    }
+}
+
 module.exports = {
     auth,
     sair,
+    verificarAutenticacao
 }

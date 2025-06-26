@@ -26,18 +26,6 @@ const cadastrarUsuario = (req, res) => {
     }
 }
 
-function verificarAutenticacao(req, res, next){
-    if(req.session.autorizado){
-        console.log('usuário autorizado');
-        next();
-    }
-    else{
-        console.log('usuário NÃO autorizado');
-        res.redirect('/');
-    }
-}
-
 module.exports = {
     cadastrarUsuario,
-
 }
