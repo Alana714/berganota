@@ -85,22 +85,11 @@ function validarRequisicao(dados_consulta){
 
     return campos_invalidos;
 }
-//teste
-const getTest = (req, res) => {
-    res.render('teste.html');
-}
-
-
 
 module.exports = {
-    getLogin,
-    getRegister,
-    getIndex,
-    getProfile,
-    getTest,
-    postCadastrarUsuario,
-    postAutenticarUsuario,
-    verificarAutenticacao,
-    sair,
-    getNotasView
+    getNotas,
+    postNotas,
+    getEditarNotas,
+    postEditarNota,
+    getExcluirNota
 }

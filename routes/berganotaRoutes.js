@@ -9,6 +9,4 @@ router.get('/home', authController.verificarAutenticacao, berganotaController.ge
 router.get('/perfil', authController.verificarAutenticacao, berganotaController.getProfile);
 router.get('/teste', berganotaController.getTest);
 
-router.post('/api/add_note', berganotaController.addNote);
-
 module.exports = router;
