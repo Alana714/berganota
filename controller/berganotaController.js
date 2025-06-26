@@ -8,7 +8,6 @@ const getRegister = (req, res) => {
 
 const getIndex = (req, res) => {
     res.render('home.html');
-    console.log(req.session.usuario);
 }
 
 const getProfile = (req, res) => {
