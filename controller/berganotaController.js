@@ -1,12 +1,30 @@
 const Nota = require('../model/nota');
 
+const getIndex = (req, res) => {
+    res.render('index.html');
+}
+
 const getHome = (req, res) => {
-    Nota.findAll = ({
+
+    usuario = req.session.usuario
+
+    Nota.findAll({
         where: {
             idAutor: req.session.usuario.id,
         }
-    }).then((notas)=>{
-        res.render('home.html', {notas});
+    }).then((notas) => {
+        const notasFormatadas = notas.map(nota => {
+            const notaJson = nota.toJSON();
+            if (notaJson.createdAt) {
+                notaJson.dataFormatada = notaJson.createdAt.toLocaleDateString('pt-BR', {
+                    day: '2-digit',
+                    month: '2-digit',
+                    year: '2-digit'
+                });
+            }
+            return notaJson;
+        });
+        res.render('home.html', {notas: notasFormatadas, usuario});
     }).catch((err)=>{
         res.render('home.html', {err});
     })
@@ -14,10 +32,6 @@ const getHome = (req, res) => {
 
 const getRegister = (req, res) => {
     res.render('cadastro.html');
-}
-
-const getIndex = (req, res) => {
-    res.render('index.html');
 }
 
 const getProfile = (req, res) => {
