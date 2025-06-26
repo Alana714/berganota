@@ -10,7 +10,7 @@ const auth = async (req, res) => {
 
     if(user != null){
         req.session.authorization = true;
-        req.session.usuario = usuario;
+        req.session.user = user;
         res.redirect('/home');
     }
     else{

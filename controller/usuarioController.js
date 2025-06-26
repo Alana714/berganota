@@ -15,6 +15,8 @@ const cadastrarUsuario = (req, res) => {
     }
     else{
         Usuario.create(usuario).then(()=>{
+            req.session.authorization = true;
+            req.session.usuario = usuario;
             res.redirect('/home');
         }).catch((err)=>{
             console.log(err);
