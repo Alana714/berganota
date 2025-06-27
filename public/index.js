@@ -1,4 +1,3 @@
-
 // Função para alternar entre abas
 function switchTab(tabId) {
     // Esconder todos os conteúdos de abas
@@ -19,16 +18,6 @@ function switchTab(tabId) {
 }
 
 // Função JavaScript para a nova aba
-function minhaFuncao() {
-    console.log("Função chamada ao clicar na aba 'Minha Família'");
-    
-    // Exemplo de ação que pode ser realizada
-    const notification = document.querySelector('.notification');
-    notification.style.animation = 'none';
-    setTimeout(() => {
-        notification.style.animation = 'pulse 1.5s';
-    }, 10);
-}
 
 const openEditSheet = (botao) => {
     document.getElementById('sheet-edit').classList.add('active');
