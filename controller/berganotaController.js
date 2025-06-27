@@ -1,4 +1,5 @@
 const Nota = require('../model/nota');
+const Usuario = require('../model/usuario');
 
 const getIndex = (req, res) => {
     res.render('index.html');
@@ -9,7 +10,7 @@ const getRegister = (req, res) => {
 }
 
 const getHome = (req, res) => {
-    usuario = req.session.usuario
+    const usuario = req.session.usuario
 
     Nota.findAll({
         where: {
@@ -34,7 +35,15 @@ const getHome = (req, res) => {
 }
 
 const getProfile = (req, res) => {
-    res.render('profile.html');
+    Usuario.findAll({
+        where: {
+            id: req.session.usuario.id,
+        }
+    }).then((usuario) => {
+        res.render('profile.html', {usuario});
+    }).catch((err)=>{
+        res.render('profile.html', {err})
+    })
 }
 
 const getTest = (req, res) => {
