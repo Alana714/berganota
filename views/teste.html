@@ -3,198 +3,231 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Berganota - Sistema de Gerenciamento Familiar</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Perfil do Usuário - Berganota</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="/index.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+     <style>
+        
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .form-group-p {
+            display: flex;
+            flex-direction: column;
+        }
+        .profile-container {
+    width: 100%;
+    max-width: 700px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+        
+        .form-label-p {
+            margin-bottom: 8px;
+            color: #495057;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            font-size: 1.05rem;
+        }
+        
+        .form-label-p i {
+            color: #EB5D4B;
+            font-size: 1.1rem;
+            width: 25px;
+            text-align: center;
+        }
+        
+        .form-control-p {
+            padding: 14px 18px;
+            border: 2px solid #e9ecef;
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: all 0.3s;
+            background: #f8f9fa;
+        }
+        
+        .form-control-p:focus {
+            border-color: #EB5D4B;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(235, 93, 75, 0.15);
+            background: white;
+        }
+        
+        .password-container-p {
+            position: relative;
+        }
+        
+        .toggle-password-p {
+            position: absolute;
+            right: 18px;
+            top: 44px;
+            color: #6c757d;
+            cursor: pointer;
+            font-size: 1.1rem;
+        }
+        
+        .profile-actions-p {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+            padding-top: 30px;
+            border-top: 1px solid #e9ecef;
+        }
+        
+        .btn-p {
+            padding: 0.9rem 2rem;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            min-width: 180px;
+            justify-content: center;
+        }
+        
+        .btn-save-p {
+            background: linear-gradient(135deg, #EB5D4B, #ff998b);
+            color: white;
+            box-shadow: 0 5px 15px rgba(235, 93, 75, 0.25);
+        }
+        
+        .btn-save-p:hover {
+            background: linear-gradient(135deg, #d95240, #e88a7d);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(235, 93, 75, 0.35);
+        }
+        
+        .btn-cancel-p {
+            background: white;
+            color: #6c757d;
+            border: 2px solid #e9ecef;
+        }
+        
+        .btn-cancel-p:hover {
+            background: #f8f9fa;
+            border-color: #dee2e6;
+        }
+        
+        .footer-p {
+            text-align: center;
+            padding: 20px;
+            color: #6c757d;
+            font-size: 0.9rem;
+            background: #f8f9fa;
+        }
+        
+    </style>
 </head>
 <body>
-    <div class="main-container">
-        <!-- Seção esquerda - Perfil -->
-        <div class="profile-section">
-            <div class="action-icons">
-                <a href="#"><i class="fas fa-sign-out-alt"></i></a>
-                <a href="#"><i class="fas fa-cog"></i></a>
-            </div>
-            
-            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=764&q=80" 
-                 class="profile-img" 
-                 alt="Foto de perfil">
-            
-            <div class="user-info">
-                <h3>Maria Silva</h3>
-                <p>maria.silva@exemplo.com</p>
-            </div>
-            
-            <div class="family-code">
-                <h3>Código da família:</h3>
-                <p>NCH3F8</p>
-            </div>
-            
-            <div class="footer-text">
-                <p>Berganota &copy; 2023</p>
-            </div>
-        </div>
-        
-        <!-- Seção direita - Conteúdo -->
-        <div class="content-section">
-            <div class="tabs-container">
-                <div class="tabs">
-                    <button class="tab active" onclick="switchTab('posts-tab')">
-                        <i class="fas fa-newspaper"></i> Posts Recentes
-                    </button>
-                    <button class="tab" onclick="switchTab('family-tab'); minhaFuncao()">
-                        <i class="fas fa-users"></i> Minha Família
-                    </button>
-                </div>
-                
-                <!-- Aba de Posts -->
-                <div id="posts-tab" class="tab-content active">
-                    <div class="posts-container">
-                        <h2 class="section-title">Posts Recentes</h2>
-                        
-                        <button class="add-post-btn" onclick="openSheet()">
-                            <i class="fas fa-plus"></i> Novo Post
-                        </button>
-
-                        <div class="post-card">
-                            <div class="post-header">
-                                <h3 class="post-title">Reunião Familiar</h3>
-                                <div class="post-actions">
-                                    <a href="#"><i class="fas fa-edit"></i></a>
-                                    <a href="#"><i class="fas fa-trash"></i></a>
-                                </div>
-                            </div>
-                            <div class="post-content">
-                                <p>Lembrando a todos que nossa reunião familiar mensal será neste sábado, às 15h, na casa da vovó. Por favor, confirmem presença até quinta-feira.</p>
-                                <p>Trazer seus pratos favoritos para compartilhar! Vamos discutir também os preparativos para o aniversário do papai.</p>
-                            </div>
-                            <div class="post-meta">
-                                <span>Publicado em: 05/06/2023</span>
-                                <span>Por: Maria Silva</span>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-                
-                <!-- Nova Aba - Minha Família -->
-                <div id="family-tab" class="tab-content">
-                    <div class="new-tab-content">
-                        <h2 class="tab-title"><i class="fas fa-users"></i> Minha Família</h2>
-                        <p class="text-center">Aqui você pode gerenciar as configurações da sua família e ver os membros conectados.</p>
-                        
-                        <div class="notification">
-                            <div class="notification-title">
-                                <i class="fas fa-bell"></i>
-                                <h3>Notificações Recentes</h3>
-                            </div>
-                            <p>Ana Silva acabou de adicionar um novo post: "Festa de Aniversário".</p>
-                            <p>Carlos Silva aceitou o convite para participar da família.</p>
-                        </div>
-                        
-                        <div class="feature-grid">
-                            <div class="feature-card">
-                                <div class="feature-icon">
-                                    <i class="fas fa-user-plus"></i>
-                                </div>
-                                <h3 class="feature-title">Adicionar Membro</h3>
-                                <p class="feature-description">Convide novos membros para sua família usando o código único.</p>
-                            </div>
-                            
-                            <div class="feature-card">
-                                <div class="feature-icon">
-                                    <i class="fas fa-cog"></i>
-                                </div>
-                                <h3 class="feature-title">Configurações</h3>
-                                <p class="feature-description">Personalize as configurações da sua família e notificações.</p>
-                            </div>
-                            
-                            <div class="feature-card">
-                                <div class="feature-icon">
-                                    <i class="fas fa-history"></i>
-                                </div>
-                                <h3 class="feature-title">Histórico</h3>
-                                <p class="feature-description">Veja o histórico completo de atividades da sua família.</p>
-                            </div>
-                            
-                            <div class="feature-card">
-                                <div class="feature-icon">
-                                    <i class="fas fa-shield-alt"></i>
-                                </div>
-                                <h3 class="feature-title">Privacidade</h3>
-                                <p class="feature-description">Controle quem pode ver e editar informações da família.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Overlay para o sheet view -->
-    <div class="overlay" id="overlay"></div>
-    
-    <!-- Sheet View para Novo Post -->
-    <div class="sheet-container" id="sheet">
-        <div class="sheet-header">
-            <h3 class="sheet-title"><i class="fas fa-plus-circle"></i> Criar Novo Post</h3>
-            <button class="sheet-close" onclick="closeSheet()">
-                <i class="fas fa-times"></i>
+    <div class="profile-container">
+        <div class="profile-header">
+            <button class="back-button" onclick="window.history.back()">
+                <i class="fas fa-arrow-left"></i>
             </button>
+            <h1 class="profile-title">Configurações do Perfil</h1>
+            <p class="profile-subtitle">Gerencie suas informações pessoais</p>
         </div>
         
-        <div class="sheet-body">
-            <form id="post-form">
-                <div class="form-group">
-                    <label class="form-label" for="post-title">Título do Post</label>
-                    <input type="text" class="form-control" id="post-title" placeholder="Digite um título" required>
+        <div class="profile-content">
+            <div class="profile-picture-container">
+                <img src="https://thumbs.dreamstime.com/b/default-profile-picture-avatar-photo-placeholder-vector-illustration-default-profile-picture-avatar-photo-placeholder-vector-189495158.jpg" 
+                class="profile-picture" 
+                     alt="Foto de perfil">
+                <!-- <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=764&q=80" 
+                class="profile-picture" 
+                     alt="Foto de perfil"> -->
+                <button class="change-photo-btn">
+                    <i class="fas fa-camera"></i> Alterar Foto
+                </button>
+            </div>
+
+            {{#erro}}
+                <div class="alert alert-danger">
+                    <strong>Senha atual invalida!</strong>
+                </div>
+            {{/erro}}
+            
+            <form id="profile-form" class="profile-form" action="/api/edit-profile/{{id}}" method="POST">
+                
+
+                <div class="form-group-p">
+                    <label class="form-label-p"><i class="fas fa-user"></i> Nome Completo</label>
+                    <input type="text" class="form-control-p" value="{{nome}}" name="nome" required>
                 </div>
                 
-                <div class="form-group">
-                    <label class="form-label" for="post-content">Conteúdo</label>
-                    <textarea class="form-control" id="post-content" placeholder="Escreva seu post aqui..." required></textarea>
+                <div class="form-group-p">
+                    <label class="form-label-p"><i class="fas fa-envelope"></i> Email</label>
+                    <input type="email" class="form-control-p" value="{{email}}" name="email" required>
                 </div>
                 
-                <div class="form-group">
-                    <label class="form-label">Importância</label>
-                    <div style="display: flex; gap: 1rem;">
-                        <label class="form-radio">
-                            <input type="radio" name="importance" value="normal" checked>
-                            <span>Normal</span>
-                        </label>
-                        <label class="form-radio">
-                            <input type="radio" name="importance" value="important">
-                            <span>Importante</span>
-                        </label>
-                        <label class="form-radio">
-                            <input type="radio" name="importance" value="urgent">
-                            <span>Urgente</span>
-                        </label>
-                    </div>
+                <div class="form-group-p password-container-p">
+                    <label class="form-label-p"><i class="fas fa-lock"></i> Senha Atual</label>
+                    <input type="password" class="form-control-p" id="current-password" name="oldPassword" required>
+                    <span class="toggle-password-p" onclick="togglePasswordVisibility('current-password', 'current-eye-icon')">
+                        <i class="fas fa-eye" id="current-eye-icon"></i>
+                    </span>
                 </div>
                 
-                <div class="form-group">
-                    <label class="form-label" for="post-category">Categoria</label>
-                    <select class="form-control" id="post-category">
-                        <option value="">Selecione uma categoria</option>
-                        <option value="event">Evento Familiar</option>
-                        <option value="shopping">Lista de Compras</option>
-                        <option value="reminder">Lembrete</option>
-                        <option value="announcement">Anúncio</option>
-                        <option value="other">Outro</option>
-                    </select>
+                <div class="form-group-p password-container-p">
+                    <label class="form-label-p"><i class="fas fa-key"></i> Nova Senha</label>
+                    <input type="password" class="form-control-p" id="new-password" name="newPassword">
+                    <span class="toggle-password-p" onclick="togglePasswordVisibility('new-password', 'new-eye-icon')">
+                        <i class="fas fa-eye" id="new-eye-icon"></i>
+                    </span>
+                </div>
+                
+                <div class="profile-actions-p">
+                    <button class="btn btn-cancel" onclick="window.history.back()">
+                        <i class="fas fa-times"></i> Cancelar
+                    </button>
+                    <button type="submit" class="btn-p btn-save-p">
+                        <i class="fas fa-save"></i> Salvar Alterações
+                    </button>
                 </div>
             </form>
         </div>
         
-        <div class="form-actions">
-            <button class="btn btn-secondary" onclick="closeSheet()">Cancelar</button>
-            <button class="btn btn-primary" onclick="submitPost()">Publicar</button>
+        <div class="footer-p">
+            <p>Berganota &copy; 2025 | Todos os direitos reservados</p>
         </div>
     </div>
+    
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="index.js"></script>
+    <script>    
+        // Função para mostrar/ocultar senha
+        function togglePasswordVisibility(inputId, iconId) {
+            const passwordInput = document.getElementById(inputId);
+            const eyeIcon = document.getElementById(iconId);
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                eyeIcon.classList.remove('fa-eye');
+                eyeIcon.classList.add('fa-eye-slash');
+            } else {
+                passwordInput.type = 'password';
+                eyeIcon.classList.remove('fa-eye-slash');
+                eyeIcon.classList.add('fa-eye');
+            }
+        }
+    </script>
 </body>
 </html>
