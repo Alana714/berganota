@@ -45,54 +45,26 @@ const openEditSheet = (botao) => {
 
     const form = document.getElementById('post-edit-form');
     form.action = `/api/edit/${id}`
-
-    // document.getElementById('sheet-edit').style.display = 'block';
 }
 
-function closeEditSheet() {
+const closeEditSheet = () => {
     document.getElementById('sheet-edit').classList.remove('active');
     document.getElementById('overlay').classList.remove('active');
     document.body.style.overflow = 'auto';
 }
 
-// Funções para o sheet view
-function openSheet() {
+const openSheet = () => {
     document.getElementById('sheet').classList.add('active');
     document.getElementById('overlay').classList.add('active');
     document.body.style.overflow = 'hidden';
 }
 
-function closeSheet() {
+const closeSheet = () => {
     document.getElementById('sheet').classList.remove('active');
     document.getElementById('overlay').classList.remove('active');
     document.body.style.overflow = 'auto';
 }
 
-function submitPost() {
-    const title = document.getElementById('post-title').value;
-    const content = document.getElementById('post-content').value;
-    
-    if (!title || !content) {
-        alert('Por favor, preencha todos os campos obrigatórios.');
-        return;
-    }
-    
-    // Aqui você normalmente enviaria os dados para o servidor
-    console.log('Novo post criado:');
-    console.log('Título:', title);
-    console.log('Conteúdo:', content);
-    
-    // Fechar o sheet view
-    closeSheet();
-    
-    // Limpar o formulário
-    document.getElementById('post-form').reset();
-    
-    // Mostrar mensagem de sucesso
-    alert('Post criado com sucesso!');
-}
-
-// Fechar o sheet view ao clicar no overlay
 document.getElementById('overlay').addEventListener('click', closeSheet);
 document.getElementById('overlay').addEventListener('click', closeEditSheet);
 

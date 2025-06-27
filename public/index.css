@@ -179,13 +179,13 @@ body, html {
 }
 
 .tabs-container {
-    margin-bottom: 2rem;
+    margin-bottom: 0.5rem;
 }
 
 .tabs {
     display: flex;
     border-bottom: 3px solid #FFB8AF;
-    margin-bottom: 2.8rem;
+    margin-bottom: 0.9rem;
 }
 
 .tab {
@@ -360,13 +360,12 @@ body, html {
 .add-post-btn {
     background: linear-gradient(135deg, #EB5D4B, #ff998b);
     border: none;
-    /* border-radius: 100px; antes */
     border-radius: 100px;
     color: white;
     /* font-weight: 700; */
     /* padding: 1.8rem 1.9rem; antes */
     padding: 1.2rem 1.3rem;
-    /* margin-bottom: 0.3rem; */
+    margin-bottom: 1rem;
     display: inline-flex;
     align-items: center;
     gap: 0.8rem;
