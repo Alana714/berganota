@@ -3,7 +3,6 @@ const Usuario = require('../model/usuario');
 const cadastrarUsuario = (req, res) => {
     let usuario = {
         nome: req.body.nome,
-        sobrenome: req.body.sobrenome,
         email: req.body.email,
         senha: req.body.senha,
         confSenha: req.body.confsenha
