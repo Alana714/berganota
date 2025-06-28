@@ -305,17 +305,16 @@ body, html {
 }
 
 .tab {
-    padding: 0.8rem 1.5rem;
-    background: #FFF;
+    padding: 10px 20px;
+    background: #FFE8E5;
     border: none;
+    border-radius: 8px 8px 0 0;
     cursor: pointer;
-    font-size: 1.1rem;
+    transition: all 0.3s;
     font-weight: 600;
     color: #EB5D4B;
-    border-radius: 8px 8px 0 0;
-    transition: all 0.3s;
     position: relative;
-    margin-right: 0.5rem;
+    margin-right: 5px;
 }
 
 .tab:hover {
@@ -330,7 +329,7 @@ body, html {
 .tab.active::after {
     content: '';
     position: absolute;
-    bottom: -3px;
+    bottom: -1px;
     left: 0;
     width: 100%;
     height: 3px;
@@ -339,10 +338,15 @@ body, html {
 
 .tab-content {
     display: none;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
 }
 
 .tab-content.active {
     display: block;
+    opacity: 1;
+    transform: translateY(0);
     animation: fadeIn 0.5s ease-in-out;
 }
 

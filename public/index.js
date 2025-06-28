@@ -1,4 +1,3 @@
-// Função para alternar entre abas
 function switchTab(tabId) {
     // Esconder todos os conteúdos de abas
     document.querySelectorAll('.tab-content').forEach(tab => {
@@ -11,13 +10,12 @@ function switchTab(tabId) {
     });
     
     // Mostrar a aba selecionada
+    //alert(document.getElementById(tabId).classList);
     document.getElementById(tabId).classList.add('active');
     
     // Adicionar classe ativa ao botão da aba
     event.currentTarget.classList.add('active');
 }
-
-// Função JavaScript para a nova aba
 
 const openEditSheet = (botao) => {
     document.getElementById('sheet-edit').classList.add('active');
@@ -57,7 +55,6 @@ const closeSheet = () => {
 document.getElementById('overlay').addEventListener('click', closeSheet);
 document.getElementById('overlay').addEventListener('click', closeEditSheet);
 
-// Adicionar animação de pulso
 const style = document.createElement('style');
 style.innerHTML = `
     @keyframes pulse {
@@ -68,7 +65,6 @@ style.innerHTML = `
 `;
 document.head.appendChild(style);
 
-// Efeito para os botões de ação
 document.querySelectorAll('.post-actions a').forEach(link => {
     link.addEventListener('mouseenter', function() {
         this.style.transform = 'scale(1.2)';
