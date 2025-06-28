@@ -1,5 +1,6 @@
 const Nota = require('../model/nota');
 const Usuario = require('../model/usuario');
+const NotaFamilia = require('../model/notaFamilia');
 
 const getIndex = (req, res) => {
     res.render('index.html');
@@ -11,12 +12,25 @@ const getRegister = (req, res) => {
 
 const getHome = (req, res) => {
     const usuario = req.session.usuario
+    let createFamilia = false;
 
-    Nota.findAll({
-        where: {
-            idAutor: req.session.usuario.id,
-        }
-    }).then((notas) => {
+    if(req.session.usuario.idFamilia == null) {
+        createFamilia = true;
+    }
+
+    Promise.all([
+        Nota.findAll({
+            where: {
+                idAutor: req.session.usuario.id,
+            }
+        }),
+        NotaFamilia.findAll({
+            where:{
+                idFamilia: req.session.usuario.idFamilia,
+            }
+        }),
+    ])
+    .then(([notas, notasFamilia]) => {
         const notasFormatadas = notas.map(nota => {
             const notaJson = nota.toJSON();
             if (notaJson.createdAt) {
@@ -28,8 +42,26 @@ const getHome = (req, res) => {
             }
             return notaJson;
         });
-        res.render('home.html', {notas: notasFormatadas, usuario});
-    }).catch((err)=>{
+        const notasFamiliaFormatadas = notasFamilia.map(nota => {
+            const notaJson = nota.toJSON();
+            if (notaJson.createdAt) {
+                notaJson.dataFormatada = notaJson.createdAt.toLocaleDateString('pt-BR', {
+                    day: '2-digit',
+                    month: '2-digit',
+                    year: '2-digit'
+                });
+            }
+            return notaJson;
+        });
+
+        res.render('home.html', {
+            notas: notasFormatadas,
+            notasFamilia: notasFamiliaFormatadas,
+            usuario,
+            createFamilia,
+        })
+    })
+    .catch((err)=>{
         res.render('home.html', {err});
     })
 }
