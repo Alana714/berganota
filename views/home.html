@@ -45,7 +45,7 @@
                         <button class="tab active" onclick="switchTab('posts-tab')">
                             <i class="fas fa-newspaper"></i> Seus Posts
                         </button>
-                        <button class="tab" onclick="switchTab('family-tab'); minhaFuncao()">
+                        <button class="tab" onclick="switchTab('family-tab')">
                             <i class="fas fa-users"></i> Plano Família
                         </button>
                     </div>
@@ -85,24 +85,18 @@
                 <!-- Nova Aba - Minha Família -->
                 <div id="family-tab" class="tab-content">
                     <div class="new-tab-content">
-                        <h2 class="tab-title"><i class="fas fa-users"></i> Minha Família</h2>
+                        {{#createFamilia}}
+                        <p>oioi</p>
 
-                        <div class="post-card">
-                            <div class="post-header">
-                                <h3 class="post-title">Lorem</h3>
-                                <div class="post-actions">
-                                    <a href="#"><i class="fas fa-edit"></i></a>
-                                    <a href="#"><i class="fas fa-trash"></i></a>
+                        <div class="feature-card">
+                                <div class="feature-icon">
+                                    <i class="fas fa-user-plus"></i>
                                 </div>
-                            </div>
-                            <div class="post-content">
-                                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequuntur, dolor praesentium vel similique sint a eum magni cupiditate animi magnam officiis suscipit nulla unde, itaque culpa accusamus placeat, provident delectus?</p>
-                            </div>
-                            <div class="post-meta">
-                                <span>Publicado em: 05/06/2023</span>
-                                <span>Por: Jane Doe</span>
-                            </div>
+                                <h3 class="feature-title">Adicionar Membro</h3>
+                                <p class="feature-description">Convide novos membros para sua família usando o código único.</p>
                         </div>
+                        {{/createFamilia}}
+                        <h2 class="tab-title"><i class="fas fa-users"></i> Minha Família</h2>
                         
                         <div class="notification">
                             <div class="notification-title">
@@ -146,6 +140,25 @@
                                 <p class="feature-description">Controle quem pode ver e editar informações da família.</p>
                             </div>
                         </div>
+
+                        {{#notasFamilia}}
+                        <div class="post-card">
+                            <div class="post-header">
+                                <h3 class="post-title">Lorem</h3>
+                                <div class="post-actions">
+                                    <a href="#"><i class="fas fa-edit"></i></a>
+                                    <a href="#"><i class="fas fa-trash"></i></a>
+                                </div>
+                            </div>
+                            <div class="post-content">
+                                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequuntur, dolor praesentium vel similique sint a eum magni cupiditate animi magnam officiis suscipit nulla unde, itaque culpa accusamus placeat, provident delectus?</p>
+                            </div>
+                            <div class="post-meta">
+                                <span>Publicado em: 05/06/2023</span>
+                                <span>Por: Jane Doe</span>
+                            </div>
+                        </div>
+                        {{/notasFamilia}}
                     </div>
                 </div>
             </div>
